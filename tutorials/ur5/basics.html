@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/css/tufte.css">
+
+    <title>Basic Use of the UR5</title>
+  </head>
+  <body>
+    <article>
+      <h1>Basic Use of the UR5</h1>
+
+      <section>
+        <h2>Starting It Up</h2>
+
+        <figure>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/oqBAS5IYJjg?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </figure>
+      </section>
+
+      <section>
+        <h2>Emergency Stop</h2>
+
+        <figure>
+          <img src="/images/estop.gif"></img>
+        </figure>
+
+        <p>Hitting the big red button stops the robot. A message will pop up on
+        the screen. To get the robot moving again first rotate the red button
+        in the direction of the arrows until it pops out. Then dismiss the
+        popups and reinitialize the robot if necessary.</p>
+      </section>
+
+      <section>
+        <h2>Common Issues</h2>
+
+        <h3>Singularities</h3>
+
+        <p>Singularities are points where the robot tries to move a joint
+        infinitely fast in order to maintain a constraint on its motion, like
+        linearity or constant speed. The robot cannot move infinitely fast
+        (thank the Gods) so when a singularity is encountered the robot will
+        generally hit its speed limit and stop. Though sometimes it just moves
+        near to a singularity, in which case unexpectedly fast motion may
+        result.</p>
+
+        <p>Here is an example of a singularity in vertical motion:</p>
+
+        <figure>
+          <label for="singularity_vertical" class="margin-toggle">⊕</label>
+          <input type="checkbox" id="singularity_vertical" class="margin-toggle">
+          <span class="marginnote">The "elbow" joint experiences the
+            singularity here. Watch the popping motion as it accelerates to its
+            limit.</span>
+          <img src="/images/singularity_vertical.gif"></img>
+        </figure>
+
+        <p>And here is a singularity in the horizontal direction:</p>
+
+        <figure>
+          <label for="singularity_horizontal" class="margin-toggle">⊕</label>
+          <input type="checkbox" id="singularity_horizontal" class="margin-toggle">
+          <span class="marginnote">Note that in this case the robot was unable
+            to maintain a constant speed, but it succeeded in keeping its
+            motion along the intended path.</span>
+          <img src="/images/singularity_horizontal.gif"></img>
+        </figure>
+
+        <p>While driving the robot from the PolyScope UI on the pendant the most likely place to encounter this kind of problem is the "Move Tool" section under the "Move" tab:</p>
+
+        <figure>
+          <img src="/images/polyscope_move_tcp.jpg"></img>
+        </figure>
+
+        <h3>Collisions</h3>
+
+        <img src="/images/collision.gif"></img>
+
+        <p>Sometimes the robot hits things or itself or people (hopefully
+        rarely). The UR5 is what is known as a collaborative robot - it is
+        designed to be used in close proximity to people. This means that it
+        incorporates safety features that minimize the risks associated with it
+        unexpectedly hitting something. Every joint has force feedback and if
+        at any moment the expected force exceeds safety margins the robot will
+        come to an immediate stop. A popup will appear on the screen and it
+        must be dismissed before the robot can continue operating.</p>
+
+        <p>Though the robot is generally safe to work with please stay alert and
+        use common sense. It's still possible to get conked in the head or in
+        another vulnerable spot. And the robot may be carrying a tool that
+        comes with its own safety concerns, such as a knife or laser. Treat it
+        with at least the respect that you would give any power tool in a
+        shop.</p>
+      </section>
+    </article>
+  </body>
+</html>

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/css/tufte.css">
+
+    <title>Human Robot Art Synth</title>
+  </head>
+  <body>
+    <article>
+      <h1>Human/Robot Art Synth Space</h1>
+      <p class="subtitle">A workshop for art-making with robots</p>
+
+      <section>
+        <img src="/images/harold_jamming.gif"></img>
+      </section>
+
+      <section>
+        <p>Hello and welcome to the website for the workshop, "Synthesizing Human
+        and Robot Movements for Art Production" taught at MIT during the 2019 MIT
+        Independent Activities Period.</p>
+
+        <p>During a five day workshop participants are provided with a six axis
+        robot arm, materials, tools, a workspace, and assistance from
+        instructors. They are asked to synthesize these elements into art. Here
+        you can find documentation for the tools used and created for the
+        workshop, the projects created by participants, and general resources
+        related to the creative use of industrial robots.</p>
+      </section>
+
+      <section>
+        <h2>Inspiration</h2>
+
+        <p>Here are some links to existing projects that you may find
+        inspiration for your own projects in:</p>
+
+        <ul>
+          <li><a href="https://www.are.na/owen-trueblood/robot-arm-gifs">Collection
+              of creative uses of industrial robot arms</a></li>
+          <li><a href="https://www.youtube.com/watch?v=lX6JcybgDFo">Video: Box,
+              by Bot & Dolly</a></li>
+          <li><a href="https://vimeo.com/139877473">Video: UR10 art-making
+              experiments at Autodesk</a></li>
+          <li><a href="https://vimeo.com/191963552">Video: Madeline the Robot
+              Tamer</a></li>
+          <li><a href="https://vimeo.com/256512922">Video: TELESTRON</a></li>
+          <li><a href="https://www.youtube.com/watch?v=4ooVr6RZ_nw">Video: Sun Yuan and Peng Yu "Can't Help Myself"</a></li>
+          <li><a href="https://vimeo.com/robotsinarchitecture">Robots in
+              Architecture on Vimeo</a></li>
+          <li><a href="http://sougwen.com/project/drawing-operations">Sougwen Chung's Drawing Operations</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>The Robot</h2>
+        <p class="subtitle">Harold</p>
+
+        <figure>
+          <label for="harold" class="margin-toggle">⊕</label>
+          <input type="checkbox" id="harold" class="margin-toggle">
+          <span class="marginnote">Named after the boy in "Harold and the Purple
+            Crayon".</span>
+          <img src="/images/harold.gif" alt="A Universal Robots UR5">
+        </figure>
+
+        <p>Harold is a <a href="https://www.universal-robots.com/products/ur5-robot/">
+          Universal Robots UR5 industrial, collaborative six axis robot arm</a>.
+        "Collaborative" means that Harold was designed to be used safely in
+        close proximity to humans, unlike most industrial robot arms which are
+        extremely hazardous due to blind power exerted on unforgiving heavy
+        metal limbs. Traditional industrial robots must be physically isolated
+        from human beings to ensure safety, but Harold can sense interference
+        and stop moving.</p>
+
+        <p>"6 axis" means that Harold's movement is defined by 6 numbers: the
+        angle of each of 6 joints. It also means that generally Harold can
+        position a tool in 3D space at any angle, though there are limitations
+        imposed by the robot's reach and self-collisions. The "5" in "UR5"
+        stands for 5 kg, the amount of mass that Harold can move at full
+        speed.</p>
+
+        <p><b>Resources</b></p>
+        <ul>
+          <li><a href="/tutorials/ur5/basics.html">Tutorial: Basic Use of the UR5</a></li>
+          <li><a href="/pdfs/ur5_specs.pdf">UR5 technical specifications overview</a></li>
+          <li><a href="/pdfs/software/universal_robots_software_manual-3.5.2.pdf">Universal Robots software manual</a> - The software running on the control pendant</li>
+          <li><a href="/pdfs/software/universal_robots_script_manual-3.5.2.pdf">Universal Robots scripting manual</a> - Details on the URScript programming language which runs on the robot controller</li>
+          <li><a href="/pdfs/mechanical/ur5_tool_plate.pdf">UR5 tool plate mechanical drawing</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Software Tools</h2>
+
+        <h3>V-REP</h3>
+
+        <p><a href="http://www.coppeliarobotics.com/">V-REP</a> is a commercial
+        robotics simulator. It provides a simple GUI for running experiments and
+        a scripting system for extending its functionality.</p>
+
+        <p><b>Resources:</b></p>
+        <ul>
+          <li><a
+              href="https://github.com/haploid/v_rep_ur_connect">v_rep_ur_connect</a>
+            - A Lua library to sync a real UR5 with the state of a simulated UR5
+            in V-REP.</li>
+          <li><a href="http://www.coppeliarobotics.com/helpFiles/en/apiFunctionListAlphabetical.htm">V-REP Lua scripting API</a></li>
+          <li><a href="/tutorials/v_rep/path_following.html">Tutorial: How to make an object follow a path</a></li>
+        </ul>
+
+        <h3>Blender</h3>
+
+        <p><a href="https://www.blender.org/">Blender</a> is an open source 3D
+        modeling, animation, VFX, game making, and video editing tool.</p>
+
+        <p><b>Resources:</b></p>
+        <ul>
+          <li><a
+              href="https://github.com/haploid/blender_animation_server">Blender
+            Animation Server Addon</a> - An addon for Blender to serve animation
+          data over the network with client applications, like V-REP.</li>
+        </ul>
+
+        <h3>Rhino/Grasshopper</h3>
+
+        <p><a href="https://www.rhino3d.com/">Rhino</a> is a commercial 3D
+        modeling program often used for product design and architecture
+        projects.  <a href="https://www.grasshopper3d.com/">Grasshopper</a> is a
+        plug-in for Rhino that provides a visual, flow-based programming
+        language for driving Rhino's 3D modeling capabilities.</p>
+
+        <p><b>Resources:</b></p>
+        <ul>
+          <li><a href="/tutorials/rhino3d/curve_to_v_rep.html">Tutorial: Export a
+              curve from Rhino to a V-REP path using Grasshopper</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Thanks</h2>
+
+        <p>This workshop would not have been possible without support from:</p>
+
+        <ul>
+          <li><a
+           href="https://mitmuseum.mit.edu/mit-community/mit-museum-studio-and-compton-gallery">The
+           MIT Museum Studio</a> - Hosted and organized.</li>
+          <li><a href="https://www.artmatr.co/">Artmatr</a> - Provided the UR5
+            robot arm and organized.</li>
+      </section>
+    </article>
+  </body>
+</html>

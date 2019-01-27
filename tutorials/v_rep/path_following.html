@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/css/tufte.css">
+
+    <title>Path Following</title>
+  </head>
+  <body>
+    <article>
+      <h1>Following a Path in V-REP</h1>
+
+      <figure>
+        <img src="/images/v_rep-dummy_following_path.gif"></img>
+      </figure>
+
+      <section>
+        <h2>Prerequisites</h2>
+
+        <ul>
+          <li><a href="http://www.coppeliarobotics.com/downloads.html">V-REP</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Instructions</h2>
+
+        <p>Open a new scene in V-REP. Go to the top menu bar and select <b>Add
+          &gt; Path &gt; Segment type</b>. A new object named "Path" with a
+        little blue snake icon should appear in the scene hierarchy. And in the
+        3D viewport you should see a short straight line. This is our beautiful
+        new path. It represents a motion path through space. Each point along
+        its length has a position and an orientation. We can use paths to
+        direct the motion of objects in V-REP, like the target for the inverse
+        kinematics moving a robot arm.</p>
+
+        <p>Select <b>Add &gt; Dummy</b> to add a new Dummy object to the scene.
+        Dummy objects have a position and an orientation but no geometry. Let's
+        try to get our new Dummy to move along our path when the simulation
+        runs.</p>
+
+        <p>Try hitting the play button now. Nothing should happen. Hit stop.
+        Without us telling V-REP to move the Dummy along the path, nothing is
+        going to happen. Right click the Dummy in the scene hierarchy and
+        select <b>Add &gt; Associated child script &gt; Threaded</b>. Next to
+        the Dummy in the scene hierarchy there should now be two new icons, a
+        page and three bars. The page represents the script we just added and
+        the bars are the optional parameters for the script. We will use the
+        script to tell V-REP to move the Dummy along the path.</p>
+
+        <p>Double click the page. A new window should appear with some colored
+        text in it. This text is the content of the script we just created and
+        added to the Dummy. Right now it doesn't do anything, but we are going
+        to change that by replacing all of the text with the following new
+        script:</p>
+
+        <figure>
+          <script src="https://gist.github.com/jmptable/d8aa82d2f34640812e7d576780c8a44b.js"></script>
+        </figure>
+
+        <p>Now close the script window and hit play. Your Dummy should move
+        along the path from one end to the other. Try repeating the same task
+        but with the UR5_target Dummy in a scene with the robot!</p>
+      </section>
+    </article>
+  </body>
+</html>

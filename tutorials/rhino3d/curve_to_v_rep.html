@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/css/tufte.css">
+
+    <title>Exporting a Curve from Rhino to V-REP</title>
+  </head>
+  <body>
+    <article>
+      <h1>Exporting a Curve from Rhino to V-REP</h1>
+
+      <figure>
+        <img src="/images/v_rep-imported_path.png"></img>
+      </figure>
+
+      <section>
+        <h2>Prerequisites</h2>
+
+        <ul>
+          <li><a href="https://www.rhino3d.com/download/rhino-for-windows/6/latest">Rhino 6</a></li>
+          <li><a href="https://www.grasshopper3d.com">Grasshopper</a></li>
+          <li><a href="http://www.coppeliarobotics.com/downloads.html">V-REP</a></li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Instructions</h2>
+
+        <p>Open a new design in Rhino. Create a curve somehow, and make sure it
+        is a reasonable size relative to the UR5 robot, like 0.5 meters. For a
+        nice curve import <a
+        href="https://upload.wikimedia.org/wikipedia/commons/6/6e/Gosper_curve_3.svg">this
+        Gosper curve</a>:</p>
+
+        <figure>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Gosper_curve_3.svg"></img>
+        </figure>
+
+        <p>Reminder: make sure this curve is reasonably sized in Rhino, because
+        it will be imported with the same physical dimensions in V-REP. Open up
+        Grasshopper (run the "Grasshopper" command in Rhino). Create Curve, <a
+        href="http://rhino.github.io/components/vector/divideCurve.html">Divide
+        Curve</a>, <a
+        href="http://rhino.github.io/components/maths/pythonScript.html">Python
+        Script</a>, and <a
+        href="http://rhino.github.io/components/params/panel.html">Panel</a>
+        components. Then hook them up like so:</p>
+
+        <figure>
+          <img src="/images/grasshopper-curve_to_csv.png"></img>
+        </figure>
+
+        <p>Select your curve and set the value of the curve component to it
+        (right click on the component and do "Set One Curve". Right click the
+        "K" input to the Divide Curve component and set the value to true.
+        Double click the Python Script component and paste in the Python
+        code:</p>
+
+        <figure>
+          <script src="https://gist.github.com/jmptable/a3a8f1eeb9f821292e8c315898b669b9.js"></script>
+        </figure>
+
+        <p>Right click the panel and set the "Stream Destination" option. This
+        is going to be the CSV file that will be imported into V-REP, so name
+        it something like "my_cool_curve.csv".</p> <p>Open up your robot scene
+        in V-REP. Use the File &gt; Import &gt; Path from CSV... menu item to
+        select the CSV file you created from Grasshopper:</p>
+
+        <figure>
+          <img src="/images/v_rep-import_path_from_csv.png"></img>
+        </figure>
+
+        <p>Your cool curve should now be a path in V-REP! Nice work.</p>
+
+        <p>To have the robot follow your new path check out <a
+          href="/tutorials/v_rep/path_following.html">the V-REP path following
+          tutorial</a>.</p>
+      </section>
+    </article>
+  </body>
+</html>
